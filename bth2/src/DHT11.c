@@ -3,10 +3,6 @@
 
 
 
-//DE CHECK GIA TRI DOC DUOC CHI CO THE DEBUG
-
-
-
 static void DHT11_SetPinOut(DHT11_Name* DHT11)
 {
 	RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
@@ -79,8 +75,8 @@ static void DHT11_Start(DHT11_Name* DHT11) {
 
 static uint8_t DHT11_Read(DHT11_Name* DHT11) {
 	uint8_t data = 0;
-
-	for (int i = 0; i < 8; ++i) {
+  uint8_t i = 0;
+	for (i = 0; i < 8; ++i) {
 		//Bat dau truyen: tin hieu o muc thap khoang 50us va keo len muc cao
 		TIM_SetCounter(TIM2, 0);
 		while (TIM_GetCounter(TIM2) < 60) {
